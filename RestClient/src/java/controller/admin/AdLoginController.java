@@ -37,23 +37,9 @@ public class AdLoginController {
     }
 
     @RequestMapping(value = "/admin/login", method = RequestMethod.POST)
-//    public String confirmLogin(HttpServletRequest request, HttpServletResponse response,@ModelAttribute("taikhoan") Taikhoan t, ModelMap mm){
-//         boolean checkExist = TaikhoanData.existAccount(t.getUsername(), t.getPassword());
-//         //int ma = quyen.getMaQ();
-//        if (checkExist) {
-//            HttpSession session = request.getSession();
-//            session.setAttribute("username", t.getUsername());
-//             return "adindex";
-//        } else {
-//            mm.put("msg", "Incorrect email or password!");
-//            return "adlogin";
-//        }           
-//    }
-    public String confirmLogin(HttpServletRequest request, @ModelAttribute("userFormData") Taikhoan formData, ModelMap mm) {
-        System.out.println("=====>  " + formData.getUsername());
-        System.out.println("=====>  " + formData.getPassword());
-        String username = formData.getUsername();
-        String password = formData.getPassword();
+    public String confirmLogin(HttpServletRequest request, @ModelAttribute Taikhoan taikhoan, ModelMap mm) {
+        String username = taikhoan.getUsername();
+        String password = taikhoan.getPassword();
         boolean checkExist = TaikhoanData.existAccount(username, password);
         //int ma = quyen.getMaQ();
         if (checkExist) {
@@ -61,7 +47,7 @@ public class AdLoginController {
             session.setAttribute("username", username);
             return "adindex";
         } else {
-            mm.put("msg", "Incorrect email or password!");
+            mm.put("error", "Incorrect email or password!");
             return "adlogin";
         }
     }
