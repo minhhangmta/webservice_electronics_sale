@@ -5,11 +5,8 @@
  */
 package controller.admin;
 
-import client.*;
 import client.data.SanphamData;
 import entities.*;
-import dao.impl.ProductDaoImpl;
-import java.io.File;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,9 +17,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-import pojo.Danhmuc;
 import pojo.Sanpham;
 import util.Common;
 import service.*;

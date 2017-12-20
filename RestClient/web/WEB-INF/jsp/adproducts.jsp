@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Electronic Store | Quản lý sản phẩm</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="text/javascript" src="<c:url value="/resources/admin/js/myscript.js"/>"></script>
         <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>" />
         <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap-responsive.min.css"/>" />
         <link rel="stylesheet" href="<c:url value="/resources/admin/css/fullcalendar.css"/>" />
@@ -22,7 +23,7 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     </head>
     <body>
-        <script src="<c:url value="/resources/admin/js/myscript.js"/>"/>
+        
         <!--header-->
         <jsp:include page="adheader.jsp"/>
         <!--end-header-->
