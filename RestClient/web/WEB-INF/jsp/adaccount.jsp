@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Stock Management | Quản lý tài khoản</title>
+        <title>Electronic Store | Quản lý tài khoản</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>" />
         <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap-responsive.min.css"/>" />

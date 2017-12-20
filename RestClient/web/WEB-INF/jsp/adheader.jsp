@@ -1,9 +1,3 @@
-<%-- 
-    Document   : adheader
-    Created on : Dec 13, 2017, 10:18:52 PM
-    Author     : Phong_Tung
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -15,7 +9,7 @@
     <body>
         <!--Header-part-->
         <div id="header">
-            <h1><a href="${pageContext.request.contextPath}/adindex">Manage Store</a></h1>
+            <h1><a href="${pageContext.request.contextPath}/admin/index">Manage Store</a></h1>
         </div>
         <!--close-Header-part--> 
         
@@ -28,7 +22,7 @@
                         <li class="divider"></li>
                         <li><a href="#"><i class="icon-check"></i> My Tasks</a></li>
                         <li class="divider"></li>
-                        <li><a href="${pageContext.request.contextPath}/adlogin"><i class="icon-key"></i> Log Out</a></li>
+                        <li><a href="${pageContext.request.contextPath}/admin/logout"><i class="icon-key"></i> Log Out</a></li>
                     </ul>
                 </li>
                 <li class="dropdown" id="menu-messages"><a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle"><i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b></a>
@@ -43,7 +37,7 @@
                     </ul>
                 </li>
                 <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
-                <li class=""><a title="" href="${pageContext.request.contextPath}/adlogin"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+                <li class=""><a title="" href="${pageContext.request.contextPath}/admin/logout"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
             </ul>
         </div>
         <!--close-top-Header-menu-->

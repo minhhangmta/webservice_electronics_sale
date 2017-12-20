@@ -7,21 +7,20 @@ package controller.admin;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ *
+ * @author minhh
+ */
+public class AdminLogoutController {
 
-@Controller
-public class AdIndexController {
-
-    @RequestMapping(value = "/admin/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/admin/logout", method = RequestMethod.GET)
     public String index(HttpServletRequest request) {
+        System.out.println("logout");
         HttpSession session = request.getSession();
-        System.out.println("indexx  "+session.getAttribute("username").toString());
-        if (session.getAttribute("username") != null) {
-            return "adindex";
-        }
+        session.removeAttribute("username");
         return "adlogin";
     }
 }

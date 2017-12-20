@@ -17,8 +17,8 @@ import java.util.List;
 public class TaikhoanData {
 
     public static List<Taikhoan> getListTaiKhoan() {
-        TaikhoanClient spClient = new TaikhoanClient();
-        Object object = spClient.findAll_XML(String.class);
+        TaikhoanClient tkClient = new TaikhoanClient();
+        Object object = tkClient.findAll_XML(String.class);
         List<Taikhoan> list = XmlToTaikhoan.getAllFromXML(object.toString());
         return list;
     }

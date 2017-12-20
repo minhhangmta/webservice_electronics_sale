@@ -10,7 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Stock Management | Quản lý sản phẩm</title>
+        <title>Electronic Store | Quản lý sản phẩm</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap.min.css"/>" />
         <link rel="stylesheet" href="<c:url value="/resources/admin/css/bootstrap-responsive.min.css"/>" />
@@ -22,7 +22,7 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     </head>
     <body>
-         <!--header-->
+        <!--header-->
         <jsp:include page="adheader.jsp"/>
         <!--end-header-->
 
@@ -34,7 +34,7 @@
         <div id="content">
             <!--breadcrumbs-->
             <div id="content-header">
-                <div id="breadcrumb"> <a href="${pageContext.request.contextPath}/adindex" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a href="${pageContext.request.contextPath}/adproducts" class="current">Sản Phẩm</a></div>
+                <div id="breadcrumb"> <a href="${pageContext.request.contextPath}/admin/index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a href="${pageContext.request.contextPath}/adproducts" class="current">Sản Phẩm</a></div>
                 <h1><a href="${pageContext.request.contextPath}/themsanpham" class="btn btn-primary btn-large">Thêm Sản Phẩm</a></h1>
             </div>
             <!--End-breadcrumbs-->
@@ -46,9 +46,10 @@
                     <div class="span12">
                         <div class="container-fluid">
                             <div class="widget-box">
-                                <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+                                <div class="widget-title"> <span class="icon" style=" width: 25px;">
+                                        <i class="icon-th"></i></span>
                                     <h5>Danh Sách Sản Phẩm</h5>
-                                    
+
                                 </div>
                                 <div class="widget-content nopadding">
                                     <table class="table table-bordered data-table">
@@ -67,19 +68,22 @@
                                                 <th>Chức Năng</th>
                                             </tr>
                                         </thead>
-                                         <tbody>                               
+                                        <tbody>                               
                                             <c:forEach var="listSanPham" items="${listSanPham}" >                                          
                                                 <tr class="gradeX">
                                                     <td>${listSanPham.maSp}</td>
                                                     <td>${listSanPham.tensanpham}</td>
-                                                    <td>${listSanPham.anh}</td>
-                                                    <td>${listSanPham.mota}</td>
+                                                    <td>
+                                                        <img src="<c:url value="${listSanPham.anh}"/>" alt=" " 
+                                                             class="img-responsive" style="width: 60px;height: 70px;"/>
+                                                    </td>
+                                                    <td style=" width: 300px;">${listSanPham.mota}</td>
                                                     <td>${listSanPham.gia}</td>
                                                     <td>${listSanPham.sale}</td>
                                                     <td>${listSanPham.soluong}</td>
-                                                    <td>${listSanPham.nhacungcap.maNcc}</td>
-                                                    <td>${listSanPham.trangthai.maTt}</td>
-                                                    <td>${listSanPham.danhmuc.maDm}</td>
+                                                    <td>${listSanPham.maNcc.tennhacc}</td>
+                                                    <td>${listSanPham.maTt.tentrangthai}</td>
+                                                    <td>${listSanPham.maDm.tendanhmuc}</td>
                                                     <td class="center">
                                                         <a href="${pageContext.request.contextPath}/suasanpham/${listSanPham.maSp}" class="btn btn-primary btn-mini">Edit</a> 
                                                         <a href="${pageContext.request.contextPath}/xoasanpham/${listSanPham.maSp}" class="btn btn-success btn-mini">Delete</a>
@@ -107,6 +111,6 @@
 
         <!--end-Footer-part-->
 
-       
+
     </body>
 </html>
