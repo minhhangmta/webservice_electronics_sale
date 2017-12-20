@@ -42,3 +42,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+/RestServer/nbproject/private/
