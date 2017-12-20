@@ -80,6 +80,7 @@ public class XmlToSanpham {
         return list;
     }
     
+    
 //        public static void main(String[] args) {
 //         List<Sanpham> lstSP = new ArrayList<>();
 //        SanphamClient spClient = new SanphamClient();

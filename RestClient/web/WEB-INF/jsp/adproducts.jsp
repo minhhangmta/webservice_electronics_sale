@@ -22,6 +22,7 @@
         <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
     </head>
     <body>
+        <script src="<c:url value="/resources/admin/js/myscript.js"/>"/>
         <!--header-->
         <jsp:include page="adheader.jsp"/>
         <!--end-header-->
@@ -34,8 +35,12 @@
         <div id="content">
             <!--breadcrumbs-->
             <div id="content-header">
-                <div id="breadcrumb"> <a href="${pageContext.request.contextPath}/admin/index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a href="${pageContext.request.contextPath}/adproducts" class="current">Sản Phẩm</a></div>
-                <h1><a href="${pageContext.request.contextPath}/themsanpham" class="btn btn-primary btn-large">Thêm Sản Phẩm</a></h1>
+                <div id="breadcrumb"> 
+                    <a href="${pageContext.request.contextPath}/admin/index" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
+                    <a href="${pageContext.request.contextPath}/admin/products" class="current">Sản Phẩm</a></div>
+                <h1>
+                    <a href="${pageContext.request.contextPath}/themsanpham" class="btn btn-success btn-mini">Thêm Sản Phẩm</a>
+                </h1>
             </div>
             <!--End-breadcrumbs-->
 
@@ -65,7 +70,8 @@
                                                 <th>Nhà Cung Cấp</th>
                                                 <th>Trạng Thái</th>
                                                 <th>Danh Mục</th>
-                                                <th>Chức Năng</th>
+                                                <th></th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>                               
@@ -85,8 +91,9 @@
                                                     <td>${listSanPham.maTt.tentrangthai}</td>
                                                     <td>${listSanPham.maDm.tendanhmuc}</td>
                                                     <td class="center">
-                                                        <a href="${pageContext.request.contextPath}/suasanpham/${listSanPham.maSp}" class="btn btn-primary btn-mini">Edit</a> 
-                                                        <a href="${pageContext.request.contextPath}/xoasanpham/${listSanPham.maSp}" class="btn btn-success btn-mini">Delete</a>
+                                                        <a href="${pageContext.request.contextPath}/suasanpham/${listSanPham.maSp}" class="btn btn-info btn-mini">Edit</a> 
+                                                    </td><td>
+                                                        <a href="" onclick="confirmDelete('Are you sure you want to delete?', '${pageContext.request.contextPath}/xoasanpham/${listSanPham.maSp}')" class="btn btn-danger btn-mini">Delete</a>
                                                     </td>
                                                 </tr>                                             
                                             </c:forEach>

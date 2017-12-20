@@ -21,4 +21,14 @@ public class SanphamData {
         List<Sanpham> list = XmlToSanpham.getAllFromXML(object.toString());
         return list;
     }
+
+    public static void addSanpham(Sanpham sp) {
+        SanphamClient spClient = new SanphamClient();
+        spClient.create_XML(sp);
+    }
+
+    public static void deleteSanpham(int id) {
+        SanphamClient spClient = new SanphamClient();
+        spClient.remove(Integer.toString(id));
+    }
 }

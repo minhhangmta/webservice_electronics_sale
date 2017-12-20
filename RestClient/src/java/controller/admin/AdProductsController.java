@@ -5,7 +5,9 @@
  */
 package controller.admin;
 
-import client.data.*;
+import client.*;
+import client.data.SanphamData;
+import entities.*;
 import dao.impl.ProductDaoImpl;
 import java.io.File;
 import javax.servlet.http.HttpServletRequest;
@@ -43,19 +45,17 @@ public class AdProductsController {
 
     @RequestMapping(value = "/xoasanpham/{masanpham}", method = RequestMethod.GET)
     public String DeleteProduct(@PathVariable(value = "masanpham") int masanpham) {
-        ProductDaoImpl pr = new ProductDaoImpl();
-        pr.deleteProduct(masanpham);
-        return "redirect:/adproducts";
+        SanphamData.deleteSanpham(masanpham);
+        return "redirect:/admin/products";
     }
 
     @RequestMapping(value = "themsanpham", method = RequestMethod.GET)
-    public String AddProdut(ModelMap mm) {
-        mm.put("newProduct", new Sanpham());
+    public String AddProductGet() {
         return "addProduct";
     }
 
     @RequestMapping(value = "themsanpham", method = RequestMethod.POST)
-    public String AddProduct(ModelMap mm, HttpServletRequest request) {
+    public String AddProductPost(ModelMap mm, HttpServletRequest request) {
         Sanpham sanpham = new Sanpham();
         sanpham.setTensanpham(request.getParameter("tensanpham"));
         sanpham.setGia(Float.parseFloat(request.getParameter("giaban")));
@@ -63,19 +63,20 @@ public class AdProductsController {
         sanpham.setMota(request.getParameter("mota"));
         sanpham.setSale(Float.parseFloat(request.getParameter("sale")));
         sanpham.setSoluong(Integer.parseInt(request.getParameter("soluong")));
-        product.setNhacungcap(Common.getNhaCCByID(Integer.parseInt(request.getParameter("nhacungcap"))));
-        product.setDanhmuc(categoryService.getCategoryByID(Integer.parseInt(request.getParameter("danhmuc"))));
-        product.setTrangthai(Common.getTrangThaiByID(Integer.parseInt(request.getParameter("trangthai"))));
+        Nhacungcap ncc = new Nhacungcap();
+//        sanpham.setNhacungcap(ncc.set(Integer.parseInt(request.getParameter("nhacungcap"))));
+//        product.setDanhmuc(categoryService.getCategoryByID(Integer.parseInt(request.getParameter("danhmuc"))));
+//        product.setTrangthai(Common.getTrangThaiByID(Integer.parseInt(request.getParameter("trangthai"))));
         int t = this.productService.InsertSanPham(sanpham);
         switch (t) {
             case 1:
                 return "redirect:/admin/products";
             case -1:
-                mm.put("msgAccount", "Tài khoản đã tồn tại");
-                return "redirect:/addProduct";
+                mm.put("msgAccount", "Sản phẩm đã tồn tại");
+                return "addProduct";
             default:
                 mm.put("msgAccountErr", "Không thành công!!!Kiểm tra nhập liệu");
-                return "redirect:/addProduct";
+                return "addProduct";
         }
     }
     Sanpham product;

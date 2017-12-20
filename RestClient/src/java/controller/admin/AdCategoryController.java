@@ -27,7 +27,7 @@ import pojo.Danhmuc;
 public class AdCategoryController {
     @Autowired
     CategoryService categoryService;
-    @RequestMapping(value = "adcategory")
+    @RequestMapping(value = "admin/category")
     public String Category(ModelMap mm){
         mm.put("listdanhmuc",categoryService.getListDanhMuc());
         return "adcategory";
@@ -36,7 +36,7 @@ public class AdCategoryController {
     public String DeleteCategory( @ModelAttribute(value="madanhmuc")int madanhmuc){
         CategoryDaoImpl cat= new CategoryDaoImpl();
         cat.DeleteCategory(madanhmuc);
-        return "redirect:/adcategory";
+        return "redirect:/admin/category";
     }
      @RequestMapping(value = "themdanhmuc", method = RequestMethod.GET)
     public String AddCategory(ModelMap mm){
@@ -51,7 +51,7 @@ public class AdCategoryController {
         int t = this.categoryService.insertCategory(dm);
         switch (t) {
             case 1:
-                return "redirect:/adcategory";
+                return "redirect:/admin/category";
             case -1:
                 mm.put("msgAccount", "Tài khoản đã tồn tại");
                 return "redirect:/addCategory";
@@ -75,7 +75,7 @@ public class AdCategoryController {
         int t = this.categoryService.editCategory(category);
         switch (t) {
             case 1:
-                return "redirect:/adcategory";
+                return "redirect:/admin/category";
             case -1:
                 mm.put("msgAccount", "Danh muc đã tồn tại");
                 return "redirect:/editCategory";
